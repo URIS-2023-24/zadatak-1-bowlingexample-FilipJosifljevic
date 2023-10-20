@@ -25,16 +25,24 @@ internal class Program
             if (i > 0)
             {
                 if (frames[i - 1].isSpare())
+                {
                     frames[i - 1].setBonus(frames[i].getAttempt1());
+                   Frame.setTotal(frames[i-1].getAttempt1(), frames[i-1].getAttempt2(), frames[i-1].getBonus());
+                }
+                    
                 if (frames[i - 1].isStrike())
+                {
                     frames[i - 1].setBonus(frames[i].getAttempt1() + frames[i].getAttempt2());
+                    Frame.setTotal(frames[i - 1].getAttempt1(), frames[i - 1].getAttempt2(), frames[i - 1].getBonus());
+                }
             }
-            
-            for(int j = 0; j < frames.Length;++j)
-            {
-                Console.WriteLine(frames[j].toString);
-            }
-            Console.WriteLine("\n\n");
+            Frame.setTotal(frames[i].getAttempt1(), frames[i].getAttempt2(), frames[i].getBonus());
         }
+
+        for (int j = 0; j < frames.Length; ++j)
+        {
+            Console.WriteLine(frames[j].toString(j));
+        }
+        Console.WriteLine("\n\n");
     }
 }

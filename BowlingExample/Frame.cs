@@ -64,13 +64,17 @@
             return total;
         }
 
-        public void setTotal(int attempt1, int attempt2, int bonus)
+        public static void setTotal(int attempt1, int attempt2, int bonus)
         {
             total += attempt1 + attempt2 +bonus;
         }
 
         public String toString(int frameNumber)
         {
+            if(attempt1 == 10)
+                return "Frame " + frameNumber.ToString() + ": [Attempt 1 -> Strike!, Bonus -> " + bonus.ToString() + ", Total -> " + total.ToString() + "]";
+            if((attempt1 + attempt2) == 10)
+                return "Frame " + frameNumber.ToString() + ": [Attempt 1 -> " + attempt1.ToString() + ", Attempt 2 -> Spare!, Bonus -> " + bonus.ToString() + ", Total -> " + total.ToString() + "]";
             return "Frame " + frameNumber.ToString() + ": [Attempt 1 -> " + attempt1.ToString() + ", Attempt 2 ->" + attempt2.ToString() + ", Bonus -> " + bonus.ToString() + ", Total -> " + total.ToString() +"]";
         }
 

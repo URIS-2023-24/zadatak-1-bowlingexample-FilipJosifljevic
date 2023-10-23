@@ -2,9 +2,9 @@
 {
     internal class Frame
     {
-        private int attempt1 = 0, attempt2 = 0, bonus =0;
+        private int attempt1 = 0, attempt2 = 0, attempt3 =0, bonus =0;
         private bool Strike, Spare;
-        private static int total = 0;
+
 
         public Frame()
         {
@@ -18,6 +18,10 @@
         {
             return attempt2;
         }
+        public int getAttempt3()
+        {
+            return attempt3;
+        }
 
         public void setAttempt1(int attempt1)
         {
@@ -27,6 +31,11 @@
         public void setAttempt2(int attempt2)
         {
             this.attempt2 = attempt2;
+        }
+
+        public void setAttempt3(int attempt3)
+        {
+            this.attempt3 = attempt3;
         }
 
         public int getBonus()
@@ -59,23 +68,13 @@
             this.Spare = isSpare;
         }
 
-        public int getTotal(int total)
-        {
-            return total;
-        }
-
-        public static void setTotal(int attempt1, int attempt2, int bonus)
-        {
-            total += attempt1 + attempt2 +bonus;
-        }
-
         public String toString(int frameNumber)
         {
             if(attempt1 == 10)
-                return "Frame " + frameNumber.ToString() + ": [Attempt 1 -> Strike!, Bonus -> " + bonus.ToString() + ", Total -> " + total.ToString() + "]";
+                return "Frame " + (frameNumber + 1).ToString() + ": [Attempt 1 -> Strike!, Bonus -> " + bonus.ToString() + "]";
             if((attempt1 + attempt2) == 10)
-                return "Frame " + frameNumber.ToString() + ": [Attempt 1 -> " + attempt1.ToString() + ", Attempt 2 -> Spare!, Bonus -> " + bonus.ToString() + ", Total -> " + total.ToString() + "]";
-            return "Frame " + frameNumber.ToString() + ": [Attempt 1 -> " + attempt1.ToString() + ", Attempt 2 ->" + attempt2.ToString() + ", Bonus -> " + bonus.ToString() + ", Total -> " + total.ToString() +"]";
+                return "Frame " + (frameNumber + 1).ToString() + ": [Attempt 1 -> " + attempt1.ToString() + ", Attempt 2 -> Spare!, Bonus -> " + bonus.ToString() + "]";
+            return "Frame " + (frameNumber + 1).ToString() + ": [Attempt 1 -> " + attempt1.ToString() + ", Attempt 2 ->" + attempt2.ToString() + ", Bonus -> " + bonus.ToString() + "]";
         }
 
     }
